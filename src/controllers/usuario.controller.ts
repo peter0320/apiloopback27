@@ -96,7 +96,7 @@ export class UsuarioController {
   ): Promise<Count> {
     return this.usuarioRepository.count(where);
   }
-
+  
   @get('/usuarios')
   @response(200, {
     description: 'Array of Usuario model instances',
@@ -178,7 +178,7 @@ export class UsuarioController {
   ): Promise<void> {
     await this.usuarioRepository.replaceById(id, usuario);
   }
-
+  @authenticate.skip()
   @del('/usuarios/{id}')
   @response(204, {
     description: 'Usuario DELETE success',
